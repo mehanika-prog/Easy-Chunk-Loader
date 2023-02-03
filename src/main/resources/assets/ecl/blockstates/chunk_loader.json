@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "ecl:block/chunk_loader" }
+  }
+}

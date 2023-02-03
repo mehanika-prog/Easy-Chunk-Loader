@@ -1,0 +1,21 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "ecl:block/chunk_loader",
+    "all": "ecl:block/chunk_loader"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces" : {
+        "up": { "uv": [0, 0, 16, 8] ,"cullface": "up", "texture": "#all" },
+        "down": { "uv": [0, 8, 16, 16], "cullface": "down", "texture": "#all" },
+        "north": { "uv": [0, 8, 16, 16], "cullface": "north", "texture": "#all" },
+        "west": { "uv": [0, 8, 16, 16], "cullface": "west", "texture": "#all" },
+        "south": { "uv": [0, 8, 16, 16], "cullface": "south", "texture": "#all" },
+        "east": { "uv": [0, 8, 16, 16], "cullface": "east", "texture": "#all" }
+      }
+    }
+  ]
+}

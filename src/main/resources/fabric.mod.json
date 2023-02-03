@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "ecl",
+  "version": "${version}",
+  "name": "Ecl",
+  "description": "Easy chunk loader",
+  "authors": [
+    "mehanika_rush"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/ecl/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "cc.mehanika.ecl.client.EclClient"
+    ],
+    "main": [
+      "cc.mehanika.ecl.Ecl"
+    ]
+  },
+  "mixins": [
+    "ecl.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.13",
+    "fabric": "*",
+    "minecraft": "1.19.3"
+  }
+}

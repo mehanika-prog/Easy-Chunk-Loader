@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:iron_block"
+  },
+  "addition": {
+    "item": "minecraft:ender_eye"
+  },
+  "result": {
+    "item": "ecl:chunk_loader"
+  }
+}
