@@ -7,7 +7,11 @@
   "authors": [
     "mehanika_rush"
   ],
-  "contact": {},
+  "contact": {
+    "homepage": "https://modrinth.com/mod/easy-chunk-loader",
+    "sources": "https://github.com/mehanika-prog/Easy-Chunk-Loader",
+    "issues": "https://github.com/mehanika-prog/Easy-Chunk-Loader/issues"
+  },
   "license": "MIT",
   "icon": "assets/ecl/icon.png",
   "environment": "*",
@@ -17,6 +21,9 @@
     ],
     "main": [
       "cc.mehanika.ecl.Ecl"
+    ],
+    "modmenu": [
+      "cc.mehanika.ecl.ModMenuApiImpl"
     ]
   },
   "mixins": [

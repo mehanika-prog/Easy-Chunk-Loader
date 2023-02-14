@@ -1,5 +1,6 @@
 package cc.mehanika.ecl.block.entity;
 
+import cc.mehanika.ecl.Ecl;
 import cc.mehanika.ecl.block.ChunkLoaderFuelSlot;
 import cc.mehanika.ecl.gui.custom.ChunkLoaderScreenHandler;
 import net.minecraft.block.BlockState;
@@ -28,11 +29,19 @@ public class ChunkLoaderBlockEntity extends BlockEntity implements NamedScreenHa
     protected final PropertyDelegate propertyDelegate;
 
     private int progress = 0;
-    private int maxProgress = 9231; // 8 pearls per real hour.
+    private int maxProgress = 9000; // 8 pearls per real hour.
 
     public ChunkLoaderBlockEntity(BlockPos pos, BlockState state) {
 
         super(ModBlockEntities.CHUNK_LOADER, pos, state);
+
+        if (Ecl.CONFIG != null) {
+
+            this.maxProgress = 20 * 60 * 60 / Ecl.CONFIG.pearlsPerHour;
+
+            if (!Ecl.CONFIG.burnEnderPearls) this.progress = 1;
+
+        }
 
         this.propertyDelegate = new PropertyDelegate() {
 
@@ -136,6 +145,14 @@ public class ChunkLoaderBlockEntity extends BlockEntity implements NamedScreenHa
 
         if(world.isClient) return;
 
+        if (Ecl.CONFIG != null && !Ecl.CONFIG.burnEnderPearls) {
+
+            entity.load(world, true);
+
+            return;
+
+        }
+
         if (entity.done()) {
 
             entity.resetProgress();
@@ -187,6 +204,7 @@ public class ChunkLoaderBlockEntity extends BlockEntity implements NamedScreenHa
 
     @Override
     public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
+        if (Ecl.CONFIG != null && !Ecl.CONFIG.burnEnderPearls) return false;
         return ChunkLoaderFuelSlot.isFuel(stack);
     }
 

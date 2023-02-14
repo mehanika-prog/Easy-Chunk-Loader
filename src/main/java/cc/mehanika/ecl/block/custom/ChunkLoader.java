@@ -1,5 +1,6 @@
 package cc.mehanika.ecl.block.custom;
 
+import cc.mehanika.ecl.Ecl;
 import cc.mehanika.ecl.block.entity.ChunkLoaderBlockEntity;
 import cc.mehanika.ecl.block.entity.ModBlockEntities;
 import net.minecraft.block.*;
@@ -8,7 +9,6 @@ import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
@@ -42,7 +42,9 @@ public class ChunkLoader extends BlockWithEntity implements BlockEntityProvider 
             if (blockEntity instanceof ChunkLoaderBlockEntity) {
 
                 if (((ChunkLoaderBlockEntity) blockEntity).isLoading()) {
+
                     ((ChunkLoaderBlockEntity) blockEntity).load(world, false);
+
                 }
 
                 ItemScatterer.spawn(world, pos, ((ChunkLoaderBlockEntity) blockEntity).getItems());
@@ -57,6 +59,8 @@ public class ChunkLoader extends BlockWithEntity implements BlockEntityProvider 
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+
+        if (Ecl.CONFIG != null && !Ecl.CONFIG.burnEnderPearls) return ActionResult.PASS;
 
         if(!world.isClient) {
 

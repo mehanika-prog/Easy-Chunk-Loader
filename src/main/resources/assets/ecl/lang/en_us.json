@@ -1,5 +1,10 @@
 {
-  "item.ecl.chunk_loader": "Chunk Loader",
   "block.ecl.chunk_loader": "Chunk Loader",
-  "gui.ecl.chunk_loader": "Chunk Loader"
+  "gui.ecl.chunk_loader": "Chunk Loader",
+
+  "text.autoconfig.ecl.title": "Ecl Options",
+  "text.autoconfig.ecl.option.burnEnderPearls": "Burn ender pearls as a fuel.",
+  "text.autoconfig.ecl.option.pearlsPerHour": "Fuel consuming per hour.",
+
+  "modmenu.descriptionTranslation.ecl": "This mod just adds a simple chunk loader block."
 }
